@@ -32,8 +32,24 @@
         </div>
     </div>
     <style>
-        .ampm {
+        body {
+            margin: 0;
+        }
+        div {
+            display: inline;
+        }
+        .container {
+            color: #FEFEFE;
+            background-color: #000;
+            display: block;
+        }
+        #ampm {
             font-family: 'Nunito', sans-serif;
+            font-size: 44px;
+            display: inline;
+        }
+        .time {
+            font-size: 72px;
         }
     </style>
     <script lang="javascript">
@@ -43,23 +59,30 @@
         let idMonth = document.getElementById('month')
         let idDate = document.getElementById('date')
         let idWeek = document.getElementById('week')
-        let now = new Date()
-        let hour = now.getHours()
-        let min = now.getMinutes()
-        let month = now.getMonth()
-        let date = now.getDate()
-        let week = now.getDay()
-        if (hour >= 12) {
+        function clock() {
+            let now = new Date()
+            let hour = now.getHours()
+            let min = now.getMinutes()
+            let month = now.getMonth()
+            let date = now.getDate()
+            let week = now.getDay()
+            if (hour >= 12) {
             idAmpm.innerHTML = 'PM'
             idHour.innerHTML = hour - 12
-        } else {
+            } else {
             idAmpm.innerHTML = 'AM'
             idHour.innerHTML = hour
+            }
+            idMin.innerHTML = min
+            idMonth.innerHTML = month
+            idDate.innerHTML = date
+            idWeek.src = `img/${week}.png`
+
+            // 開発時用
+            let sec = now.getSeconds()
+            console.log(sec)
         }
-        idMin.innerHTML = min
-        idMonth.innerHTML = month
-        idDate.innerHTML = date
-        idWeek.src = `img/${week}.png`
+        setInterval('clock()',1000)
     </script>
 </body>
 </html>
