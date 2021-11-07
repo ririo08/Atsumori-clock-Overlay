@@ -26,7 +26,9 @@
                 <div id="date"></div>
                 <div class="niti">日</div>
             </div>
-            <div id="week"></div>
+            <div class="week">
+                <img id="week" src="" alt="曜日">
+            </div>
         </div>
     </div>
     <style>
@@ -40,11 +42,13 @@
         let idMin = document.getElementById('min')
         let idMonth = document.getElementById('month')
         let idDate = document.getElementById('date')
+        let idWeek = document.getElementById('week')
         let now = new Date()
         let hour = now.getHours()
         let min = now.getMinutes()
         let month = now.getMonth()
         let date = now.getDate()
+        let week = now.getDay()
         if (hour >= 12) {
             idAmpm.innerHTML = 'PM'
             idHour.innerHTML = hour - 12
@@ -55,6 +59,7 @@
         idMin.innerHTML = min
         idMonth.innerHTML = month
         idDate.innerHTML = date
+        idWeek.src = `img/${week}.png`
     </script>
 </body>
 </html>
