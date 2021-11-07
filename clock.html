@@ -10,8 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="upper">
+    <div id="container" class="container">
+        <div id="upper">
             <div id="ampm"></div>
             <div class="time">
                 <div id="hour"></div>
@@ -30,25 +30,20 @@
                 <img id="week" src="" alt="曜日">
             </div>
         </div>
-        <!-- <div class="t"><img src="t.png" alt=""></div> -->
     </div>
     <style>
         body {
             margin: 0;
-            background-color: black;
             position: absolute;
             bottom: 55px;
             left: 66px;
         }
-        div {
-        }
         .container {
             padding-top: 50px;
             color: #FAFEE8;
-            background-color: #000;
             display: inline-block;
         }
-        .upper {
+        #upper {
             height: 60px;
             display: flex;
             padding: 5px;
@@ -95,8 +90,33 @@
             font-size: 38px;
             line-height: 50px;
         }
+
+        /* 色変更用 */
+        .white {
+            color: white;
+        }
+        .black {
+            color: black;
+        }
+        .borderBlack {
+            border-bottom: black 6px solid !important;
+        }
     </style>
     <script lang="javascript">
+        // ハッシュ読み
+        let flg = ''
+        let urlHash = location.hash;
+        if (urlHash == '#white') {
+            console.log('done')
+            document.getElementById('container').classList.add('white')
+        }
+        if (urlHash == '#black') {
+            console.log('done')
+            document.getElementById('container').classList.add('black')
+            document.getElementById('upper').classList.add('borderBlack')
+            flg = 'b'
+        }
+        // 時計ロジック
         let idAmpm = document.getElementById('ampm')
         let idHour = document.getElementById('hour')
         let idMin = document.getElementById('min')
@@ -120,7 +140,7 @@
             idMin.innerHTML = min
             idMonth.innerHTML = month
             idDate.innerHTML = date
-            idWeek.src = `img/${week}.png`
+            idWeek.src = `img/${flg}${week}.png`
 
             // 開発時用
             let sec = now.getSeconds()
