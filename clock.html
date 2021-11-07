@@ -15,11 +15,17 @@
             <div id="ampm"></div>
             <div class="time">
                 <div id="hour"></div>
+                <div class="coron">&#058;</div>
                 <div id="min"></div>
             </div>
         </div>
         <div class="lower">
-            <div id="date"></div>
+            <div class="date">
+                <div id="month"></div>
+                <div class="gatu">月</div>
+                <div id="date"></div>
+                <div class="niti">日</div>
+            </div>
             <div id="week"></div>
         </div>
     </div>
@@ -31,10 +37,14 @@
     <script lang="javascript">
         let idAmpm = document.getElementById('ampm')
         let idHour = document.getElementById('hour')
-        let idmin = document.getElementById('min')
+        let idMin = document.getElementById('min')
+        let idMonth = document.getElementById('month')
+        let idDate = document.getElementById('date')
         let now = new Date()
         let hour = now.getHours()
         let min = now.getMinutes()
+        let month = now.getMonth()
+        let date = now.getDate()
         if (hour >= 12) {
             idAmpm.innerHTML = 'PM'
             idHour.innerHTML = hour - 12
@@ -42,7 +52,9 @@
             idAmpm.innerHTML = 'AM'
             idHour.innerHTML = hour
         }
-        idmin.innerHTML = min
+        idMin.innerHTML = min
+        idMonth.innerHTML = month
+        idDate.innerHTML = date
     </script>
 </body>
 </html>
