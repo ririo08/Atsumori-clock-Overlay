@@ -13,7 +13,10 @@
     <div class="container">
         <div class="upper">
             <div id="ampm"></div>
-            <div id="time"></div>
+            <div class="time">
+                <div id="hour"></div>
+                <div id="min"></div>
+            </div>
         </div>
         <div class="lower">
             <div id="date"></div>
@@ -26,14 +29,20 @@
         }
     </style>
     <script lang="javascript">
+        let idAmpm = document.getElementById('ampm')
+        let idHour = document.getElementById('hour')
+        let idmin = document.getElementById('min')
         let now = new Date()
-        let hours = now.getHours();
-        let mins = now.getMinutes();
-        if (hours >= 12) {
-            document.getElementById('ampm').innerHTML = 'PM';
+        let hour = now.getHours()
+        let min = now.getMinutes()
+        if (hour >= 12) {
+            idAmpm.innerHTML = 'PM'
+            idHour.innerHTML = hour - 12
         } else {
-            document.getElementById('ampm').innerHTML = 'AM';
+            idAmpm.innerHTML = 'AM'
+            idHour.innerHTML = hour
         }
+        idmin.innerHTML = min
     </script>
 </body>
 </html>
