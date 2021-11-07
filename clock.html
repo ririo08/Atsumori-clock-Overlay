@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Kosugi+Maru&family=Nunito:wght@700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -30,26 +30,62 @@
                 <img id="week" src="" alt="曜日">
             </div>
         </div>
+        <div class="t"><img src="t.png" alt=""></div>
     </div>
     <style>
         body {
             margin: 0;
+            background-color: black;
         }
         div {
-            display: inline;
         }
         .container {
-            color: #FEFEFE;
+            padding-top: 50px;
+            color: #FAFEE8;
             background-color: #000;
-            display: block;
+            display: inline-block;
+        }
+        .upper {
+            height: 60px;
+            display: flex;
+            padding: 5px;
+            border-bottom: #FAFEE8 6px solid;
+            vertical-align: top;
+            justify-content: center;
+        }
+        .lower {
+            display: flex;
+            height: 60px;
         }
         #ampm {
             font-family: 'Nunito', sans-serif;
-            font-size: 44px;
-            display: inline;
+            font-size: 46px;
+            padding-right: 18px;
         }
         .time {
-            font-size: 72px;
+            display: flex;
+            vertical-align: top;
+            font-size: 140px;
+            line-height: 60px;
+            letter-spacing: 2px;
+            font-family: 'Dongle', sans-serif;
+        }
+        .date {
+            display: flex;
+            vertical-align: top;
+        }
+        #month,
+        #date {
+            font-family: 'Dongle', sans-serif;
+            font-size: 74px;
+            line-height: 60px;
+        }
+        .gatu,
+        .niti {
+            font-family: 'Kosugi Maru', sans-serif;
+            font-weight: bolder;
+            font-size: 38px;
+            line-height: 50px;
         }
     </style>
     <script lang="javascript">
@@ -62,7 +98,7 @@
         function clock() {
             let now = new Date()
             let hour = now.getHours()
-            let min = now.getMinutes()
+            let min = ('0' + now.getMinutes()).slice(-2)
             let month = now.getMonth()
             let date = now.getDate()
             let week = now.getDay()
