@@ -25,5 +25,15 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <script lang="javascript">
+        let now = new Date()
+        let hours = now.getHours();
+        let mins = now.getMinutes();
+        if (hours >= 12) {
+            document.getElementById('ampm').innerHTML = 'PM';
+        } else {
+            document.getElementById('ampm').innerHTML = 'AM';
+        }
+    </script>
 </body>
 </html>
