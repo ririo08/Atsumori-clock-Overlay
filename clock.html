@@ -30,12 +30,15 @@
                 <img id="week" src="" alt="曜日">
             </div>
         </div>
-        <div class="t"><img src="t.png" alt=""></div>
+        <!-- <div class="t"><img src="t.png" alt=""></div> -->
     </div>
     <style>
         body {
             margin: 0;
             background-color: black;
+            position: absolute;
+            bottom: 55px;
+            left: 66px;
         }
         div {
         }
@@ -55,11 +58,14 @@
         }
         .lower {
             display: flex;
+            justify-content: center;
+            padding-top: 12px;
             height: 60px;
         }
         #ampm {
             font-family: 'Nunito', sans-serif;
             font-size: 46px;
+            font-weight: bolder;
             padding-right: 18px;
         }
         .time {
@@ -73,6 +79,8 @@
         .date {
             display: flex;
             vertical-align: top;
+            padding-right: 20px;
+            letter-spacing: 3px;
         }
         #month,
         #date {
@@ -118,6 +126,7 @@
             let sec = now.getSeconds()
             console.log(sec)
         }
+        clock()
         setInterval('clock()',1000)
     </script>
 </body>
