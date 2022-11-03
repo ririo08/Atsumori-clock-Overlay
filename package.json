@@ -1,0 +1,14 @@
+{
+  "name": "yarn",
+  "version": "2.0.0",
+  "description": "atsumotri-clock-overlay",
+  "main": "index.js",
+  "repository": "git@github.com:ririo08/Atsumori-clock-Overlay.git",
+  "author": "ririo08",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "marked": "^4.2.1"
+  }
+}
