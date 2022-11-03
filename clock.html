@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Kosugi+Maru&family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <title>あつ森時計</title>
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="upper">
+            <div id="ampm"></div>
+            <div class="time">
+                <div id="hour"></div>
+                <div class="coron">&#058;</div>
+                <div id="min"></div>
+            </div>
+        </div>
+        <div class="lower">
+            <div class="date">
+                <div id="month"></div>
+                <div class="gatu">月</div>
+                <div id="date"></div>
+                <div class="niti">日</div>
+            </div>
+            <div class="week">
+                <img id="week" src="" alt="曜日">
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            margin: 0;
+            position: absolute;
+            bottom: 55px;
+            left: 66px;
+        }
+        .container {
+            padding-top: 50px;
+            color: #FAFEE8;
+            display: inline-block;
+        }
+        #upper {
+            height: 60px;
+            display: flex;
+            padding: 5px;
+            border-bottom: #FAFEE8 6px solid;
+            vertical-align: top;
+            justify-content: center;
+        }
+        .lower {
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+            height: 60px;
+        }
+        #ampm {
+            font-family: 'Nunito', sans-serif;
+            font-size: 46px;
+            font-weight: bolder;
+            padding-right: 18px;
+        }
+        .time {
+            display: flex;
+            vertical-align: top;
+            font-size: 140px;
+            line-height: 60px;
+            letter-spacing: 2px;
+            font-family: 'Dongle', sans-serif;
+        }
+        .date {
+            display: flex;
+            vertical-align: top;
+            padding-right: 20px;
+            letter-spacing: 3px;
+        }
+        #month,
+        #date {
+            font-family: 'Dongle', sans-serif;
+            font-size: 74px;
+            line-height: 60px;
+        }
+        .gatu,
+        .niti {
+            font-family: 'Kosugi Maru', sans-serif;
+            font-weight: bolder;
+            font-size: 38px;
+            line-height: 50px;
+        }
+
+        /* 色変更用 */
+        .white {
+            color: white;
+        }
+        .black {
+            color: black;
+        }
+        .borderBlack {
+            border-bottom: black 6px solid !important;
+        }
+    </style>
+    <script lang="javascript">
+        // ハッシュ読み
+        let flg = ''
+        let urlHash = location.hash;
+        if (urlHash == '#white') {
+            console.log('done')
+            document.getElementById('container').classList.add('white')
+        }
+        if (urlHash == '#black') {
+            console.log('done')
+            document.getElementById('container').classList.add('black')
+            document.getElementById('upper').classList.add('borderBlack')
+            flg = 'b'
+        }
+        // 時計ロジック
+        let idAmpm = document.getElementById('ampm')
+        let idHour = document.getElementById('hour')
+        let idMin = document.getElementById('min')
+        let idMonth = document.getElementById('month')
+        let idDate = document.getElementById('date')
+        let idWeek = document.getElementById('week')
+        function clock() {
+            let now = new Date()
+            let hour = now.getHours()
+            let min = ('0' + now.getMinutes()).slice(-2)
+            let month = now.getMonth() + 1
+            let date = now.getDate()
+            let week = now.getDay()
+            if (hour >= 12) {
+            idAmpm.innerHTML = 'PM'
+            idHour.innerHTML = hour - 12
+            } else {
+            idAmpm.innerHTML = 'AM'
+            idHour.innerHTML = hour
+            }
+            idMin.innerHTML = min
+            idMonth.innerHTML = month
+            idDate.innerHTML = date
+            idWeek.src = `img/${flg}${week}.png`
+
+            // 開発時用
+            // let sec = now.getSeconds()
+            // console.log(sec)
+        }
+        clock()
+        setInterval('clock()',1000)
+    </script>
+</body>
+</html>
