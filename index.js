@@ -24,8 +24,6 @@ base.forEach((item, i) => {
   html += item.replace(/\s{2}/g, '')
 })
 
-console.log(html)
-
 // ファイル書き出し
 fs.writeFile('dist/index.html', html, function (err) {})
 const clock = fs.readFileSync("src/clock.html", "utf-8")
