@@ -55,6 +55,13 @@ body {
     font-weight: bold;
 }
 
+#color {
+    width: 100px;
+    height: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
 .shareBox {
     display: -webkit-box;
     display: -ms-flexbox;

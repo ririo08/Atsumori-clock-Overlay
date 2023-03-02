@@ -24,6 +24,10 @@
         </div>
         <div class="mainbox">
             <p class="detail">↑実際に動いてます</p>
+            <p class="text">▼こちらで色を選択して時計のURLを作成することも可能です！</p>
+            <input id="color" type="color">
+            <a id="colorResult">指定の色で時計を作成</a>
+            <p class="text">上記のカラーピッカーで色を選択後に生成されるURLをコピーして利用することができます。</p>
             <p class="text">制作者等リンクは下から（シェアもよろしくね！）</p>
         </div>
         <div class="shareBox">
@@ -50,6 +54,13 @@
             </a>
         </div>
     </div>
+    <script lang="javascript">
+        document.getElementById("color").addEventListener('change', () => {
+            document.getElementById("colorResult").setAttribute('href',
+                `https://ririo.dev/Atsumori-clock-Overlay/clock?color=${document.getElementById("color").value.slice(1)}`
+            );
+        })
+    </script>
 </body>
 
 </html>
