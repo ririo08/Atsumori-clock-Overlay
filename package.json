@@ -6,9 +6,19 @@
   "repository": "git@github.com:ririo08/Atsumori-clock-Overlay.git",
   "author": "ririo08",
   "license": "MIT",
-  "private": false,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
   "dependencies": {
     "fs-extra": "^10.1.0",
     "marked": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "nuxt": "^3.4.2"
   }
 }
