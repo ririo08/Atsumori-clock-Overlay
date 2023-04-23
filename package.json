@@ -14,8 +14,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
     "fs-extra": "^10.1.0",
-    "marked": "^4.2.1"
+    "marked": "^4.2.1",
+    "sass": "^1.62.0"
   },
   "devDependencies": {
     "@types/node": "^18",
