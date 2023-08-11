@@ -1,1 +1,0 @@
-import{_ as t,l as _,K as s,k as a}from"./entry.20c91eff.js";const n={},c={class:"wrapper min-h-screen"};function o(e,r){return a(),_("div",c,[s(e.$slots,"default",{},void 0,!0)])}const l=t(n,[["render",o],["__scopeId","data-v-a336831f"]]);export{l as default};
