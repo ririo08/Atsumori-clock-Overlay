@@ -33,7 +33,7 @@ const min = ref<string>()
 const month = ref<number>()
 const date = ref<number>()
 const week = ref<number>()
-let minMemory = 0
+let minMemory: number | null = null
 
 const clock = () => {
   now.value = new Date()
