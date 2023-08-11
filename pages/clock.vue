@@ -29,6 +29,7 @@ const position = computed(() => {
         left: '75px',
         right: 'default',
       }
+      break
     case PositionTypes.TopRight:
       return {
         top: '87px',
@@ -36,6 +37,7 @@ const position = computed(() => {
         left: 'default',
         right: '75px',
       }
+      break
     case PositionTypes.BottomLeft:
       return {
         top: 'default',
@@ -43,6 +45,7 @@ const position = computed(() => {
         left: '75px',
         right: 'default',
       }
+      break
     case PositionTypes.BottomRight:
       return {
         top: 'default',
@@ -50,6 +53,7 @@ const position = computed(() => {
         left: 'default',
         right: '75px',
       }
+      break
     case PositionTypes.None:
       return {
         top: 'default',
@@ -57,6 +61,7 @@ const position = computed(() => {
         left: 'default',
         right: 'default',
       }
+      break
     default:
       return {
         top: 'default',
@@ -64,6 +69,7 @@ const position = computed(() => {
         left: '75px',
         right: 'default',
       }
+      break
   }
 })
 </script>
