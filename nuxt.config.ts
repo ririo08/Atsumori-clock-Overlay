@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   css: ['assets/style.scss'],
 
   app: {
+    baseURL: '/Atsumori-clock-Overlay/',
     head: {
       charset: 'utf-8',
       meta: [
