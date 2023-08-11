@@ -14,13 +14,16 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "date-fns": "^2.30.0",
     "fs-extra": "^11.1.1",
     "marked": "^7.0.2",
+    "nuxt": "^3.6.5",
     "sass": "^1.65.1"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "nuxt": "^3.6.5"
+    "prettier": "^3.0.1",
+    "prettier-plugin-tailwindcss": "^0.5.1"
   }
 }
