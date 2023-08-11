@@ -94,7 +94,7 @@ onMounted(() => {
 }
 
 #upper {
-  height: 60px;
+  height: 85px;
   display: flex;
   padding: 5px;
   border-bottom: #fafee8 6px solid;
@@ -111,7 +111,8 @@ onMounted(() => {
 
 #ampm {
   font-family: 'Nunito', sans-serif;
-  font-size: 46px;
+  font-size: 54px;
+  line-height: 65px;
   font-weight: bolder;
   padding-right: 18px;
 }
@@ -119,9 +120,9 @@ onMounted(() => {
 .time {
   display: flex;
   vertical-align: top;
-  font-size: 140px;
+  font-size: 159.5px;
   line-height: 60px;
-  letter-spacing: 2px;
+  letter-spacing: 3.25px;
   font-family: 'Dongle', sans-serif;
 }
 
@@ -129,13 +130,14 @@ onMounted(() => {
   display: flex;
   vertical-align: top;
   padding-right: 20px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  padding-top: 5px;
 }
 
 #month,
 #date {
   font-family: 'Dongle', sans-serif;
-  font-size: 74px;
+  font-size: 86px;
   line-height: 60px;
 }
 
@@ -143,11 +145,7 @@ onMounted(() => {
 .niti {
   font-family: 'Kosugi Maru', sans-serif;
   font-weight: bolder;
-  font-size: 38px;
+  font-size: 44px;
   line-height: 50px;
-}
-
-#week {
-  width: 73px;
 }
 </style>
