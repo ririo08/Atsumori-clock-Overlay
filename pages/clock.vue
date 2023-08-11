@@ -56,7 +56,7 @@ const position = computed(() => {
       break
     case PositionTypes.None:
       return {
-        top: 'default',
+        top: '6px',
         bottom: 'default',
         left: 'default',
         right: 'default',

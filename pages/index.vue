@@ -26,6 +26,8 @@ const enabledPosition = computed(() => {
       return 'left-6 bottom-6'
     case PositionTypes.BottomRight:
       return 'right-6 bottom-6'
+    case PositionTypes.None:
+      return 'top-2'
     default:
       return ''
   }
