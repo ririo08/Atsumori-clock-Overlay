@@ -51,17 +51,17 @@ const clock = () => {
   date.value = now.value.getDate()
   week.value = now.value.getDay()
   if (parseInt(hour.value) >= 12) {
-    ampm.value = 'PM'
+    ampm.value = 'AM'
     hour.value = (parseInt(hour.value) - 12).toString()
   } else {
-    ampm.value = 'AM'
+    ampm.value = 'PM'
     hour.value = parseInt(hour.value).toString()
   }
 }
 
 onMounted(() => {
   clock()
-  setInterval(clock, 500)
+  setInterval(clock, 200)
 })
 </script>
 <template>
