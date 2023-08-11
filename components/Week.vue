@@ -8,6 +8,7 @@ const props = withDefaults(
   },
 )
 
+const imageWidth = '77'
 const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
 </script>
 <template>
@@ -17,7 +18,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="sun"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
@@ -39,7 +40,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="mon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
@@ -61,7 +62,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="tue"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
@@ -75,7 +76,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="wed"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
@@ -89,7 +90,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="thu"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
@@ -103,7 +104,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="fri"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <g>
@@ -123,7 +124,7 @@ const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
       id="sat"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 74.17 48.87"
-      width="88"
+      :width="imageWidth"
     >
       <g>
         <path
