@@ -24,34 +24,34 @@ const position = computed(() => {
   switch (positionName) {
     case PositionTypes.TopLeft:
       return {
-        top: '87px',
+        top: '55px',
         bottom: 'default',
-        left: '75px',
+        left: '66px',
         right: 'default',
       }
       break
     case PositionTypes.TopRight:
       return {
-        top: '87px',
+        top: '55px',
         bottom: 'default',
         left: 'default',
-        right: '75px',
+        right: '66px',
       }
       break
     case PositionTypes.BottomLeft:
       return {
         top: 'default',
-        bottom: '87px',
-        left: '75px',
+        bottom: '55px',
+        left: '66px',
         right: 'default',
       }
       break
     case PositionTypes.BottomRight:
       return {
         top: 'default',
-        bottom: '87px',
+        bottom: '55px',
         left: 'default',
-        right: '75px',
+        right: '66px',
       }
       break
     case PositionTypes.None:
@@ -65,8 +65,8 @@ const position = computed(() => {
     default:
       return {
         top: 'default',
-        bottom: '87px',
-        left: '75px',
+        bottom: '55px',
+        left: '66px',
         right: 'default',
       }
       break
