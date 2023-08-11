@@ -1,15 +1,15 @@
 <script lang="ts" setup>
+import { PositionTypes } from '~/types/PositionTypes'
+
 definePageMeta({
   layout: 'empty',
 })
-
-type Position = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 
 const color = ref<string>('#fafee8')
 
 // パラメータ取得
 const colorParams = useRoute().query?.color as string | undefined
-const positionName = useRoute().query?.position as Position | undefined
+const positionName = useRoute().query?.position as PositionTypes | undefined
 
 // 後方互換性
 if (colorParams) {
@@ -22,33 +22,40 @@ if (colorParams) {
 
 const position = computed(() => {
   switch (positionName) {
-    case 'topLeft':
+    case PositionTypes.TopLeft:
       return {
         top: '55px',
         bottom: 'default',
         left: '66px',
         right: 'default',
       }
-    case 'topRight':
+    case PositionTypes.TopRight:
       return {
         top: '55px',
         bottom: 'default',
         left: 'default',
         right: '66px',
       }
-    case 'bottomLeft':
+    case PositionTypes.BottomLeft:
       return {
         top: 'default',
         bottom: '55px',
         left: '66px',
         right: 'default',
       }
-    case 'bottomRight':
+    case PositionTypes.BottomRight:
       return {
         top: 'default',
         bottom: '55px',
         left: 'default',
         right: '66px',
+      }
+    case PositionTypes.None:
+      return {
+        top: 'default',
+        bottom: 'default',
+        left: 'default',
+        right: 'default',
       }
     default:
       return {
@@ -62,7 +69,7 @@ const position = computed(() => {
 </script>
 <template>
   <div class="container">
-    <AtsumoriClock class="clocktarget" :style="position" />
+    <AtsumoriClock class="clocktarget" :style="position" :color="color" />
   </div>
 </template>
 <style lang="scss" scoped>
