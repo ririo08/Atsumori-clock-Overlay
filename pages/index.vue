@@ -4,7 +4,7 @@ import { PositionTypes } from '~/types/PositionTypes'
 // 色
 const selectedColor = ref<string>('')
 const setDefaultColor = () => {
-  selectedColor.value = '#fafee8'
+  selectedColor.value = ''
 }
 
 // 配置
