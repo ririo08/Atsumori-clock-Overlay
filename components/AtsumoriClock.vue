@@ -16,19 +16,14 @@ useHead({
   ],
 })
 
-// パラメータ取得
-const colorParams = useRoute().query?.color as string | undefined
-
-const color = ref<string>('')
-
-// 後方互換性
-if (colorParams) {
-  if (colorParams === 'white' || colorParams === 'black') {
-    color.value = colorParams
-  } else {
-    color.value = '#' + colorParams
-  }
-}
+const props = withDefaults(
+  defineProps<{
+    color: string
+  }>(),
+  {
+    color: '#fafee8',
+  },
+)
 
 // 時計ロジック
 const now = ref<Date>(new Date())

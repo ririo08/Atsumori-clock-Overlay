@@ -1,7 +1,24 @@
 <script lang="ts" setup>
+definePageMeta({
+  layout: 'empty',
+})
+
 type Position = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 
+const color = ref<string>('#fafee8')
+
+// パラメータ取得
+const colorParams = useRoute().query?.color as string | undefined
 const positionName = useRoute().query?.position as Position | undefined
+
+// 後方互換性
+if (colorParams) {
+  if (colorParams === 'white' || colorParams === 'black') {
+    color.value = colorParams
+  } else {
+    color.value = '#' + colorParams
+  }
+}
 
 const position = computed(() => {
   switch (positionName) {
