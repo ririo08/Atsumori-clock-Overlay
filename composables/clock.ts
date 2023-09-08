@@ -4,7 +4,7 @@ import { Clock } from 'types/Clock'
 export const useClock = () => {
   return {
     createClockString: (date: Date): Clock => {
-      const dateArray = format(date, 'M,d,i,h,m,aa').split(',')
+      const dateArray = format(date, 'M,d,i,h,mm,aa').split(',')
       return {
         month: dateArray[0],
         day: dateArray[1],
