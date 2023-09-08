@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { dateFns } from '~/utils/date'
+import { Clock } from 'types/Clock'
 
 useHead({
   link: [
@@ -25,38 +25,19 @@ const props = withDefaults(
   },
 )
 
+const { createClockString } = useClock()
+
 // 時計ロジック
-const now = ref<Date>(new Date())
-const ampm = ref<string>()
-const hour = ref<string>()
-const min = ref<string>()
-const month = ref<number>()
-const date = ref<number>()
-const week = ref<number>()
-let minMemory: number | null = null
+const now = ref<Clock>(createClockString(new Date()))
+const minMemory = ref<number | null>(null)
 
 const clock = () => {
-  now.value = new Date()
+  const nowForComparison = new Date()
 
-  //開発時用
-  // let sec = now.value.getSeconds()
-  // console.log(sec)
+  if (minMemory.value === nowForComparison.getMinutes()) return
+  minMemory.value = nowForComparison.getMinutes()
 
-  if (minMemory === now.value.getMinutes()) return
-  minMemory = now.value.getMinutes()
-
-  hour.value = dateFns.format(now.value, 'hh')
-  min.value = dateFns.format(now.value, 'mm')
-  month.value = now.value.getMonth() + 1
-  date.value = now.value.getDate()
-  week.value = now.value.getDay()
-  if (parseInt(hour.value) >= 12) {
-    ampm.value = 'AM'
-    hour.value = (parseInt(hour.value) - 12).toString()
-  } else {
-    ampm.value = 'PM'
-    hour.value = parseInt(hour.value).toString()
-  }
+  now.value = createClockString(nowForComparison)
 }
 
 onMounted(() => {
@@ -67,21 +48,21 @@ onMounted(() => {
 <template>
   <div class="clock-container" :style="{ color: color }">
     <div id="upper" :style="{ borderBottom: `${color} 6px solid` }">
-      <div id="ampm">{{ ampm }}</div>
+      <div id="ampm">{{ now.ampm }}</div>
       <div class="time">
-        <div id="hour">{{ hour }}</div>
+        <div id="hour">{{ now.hour }}</div>
         <div class="coron">&#058;</div>
-        <div id="min">{{ min }}</div>
+        <div id="min">{{ now.minute }}</div>
       </div>
     </div>
     <div class="lower">
       <div class="date">
-        <div id="month">{{ month }}</div>
+        <div id="month">{{ now.month }}</div>
         <div class="gatu">月</div>
-        <div id="date">{{ date }}</div>
+        <div id="date">{{ now.day }}</div>
         <div class="niti">日</div>
       </div>
-      <Week :week="week" />
+      <Week :week="now.week" />
     </div>
   </div>
 </template>

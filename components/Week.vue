@@ -9,7 +9,7 @@ const props = withDefaults(
 )
 
 const imageWidth = '77'
-const weeks = ref(['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'])
+const weeks = ref(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
 </script>
 <template>
   <div class="week">
