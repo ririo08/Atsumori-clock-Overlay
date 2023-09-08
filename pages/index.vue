@@ -124,8 +124,30 @@ const createdLink = computed<string>(() => {
         <div class="mt-6">
           <h3 class="text-xl">4.OBSに貼り付ける</h3>
         </div>
+        <div class="mt-6">
+          <h3 class="text-xl">5.読んでくれたら嬉しい利用規約</h3>
+          <p class="mt-2">
+            このオーバーレイは非商用・商用問わず自由に使っていただいて構いません。
+          </p>
+          <p>ただし、この制作物そのものの二次配布等はお控えください…！</p>
+          <p>
+            もし可能でしたら、以下の文章を配信の説明欄等に貼っていただけるととても喜びます。
+          </p>
+          <pre
+            class="bg-gray-200 p-2 rounded-md border-gray-400 border-solid border-2"
+          ><code>あつまれどうぶつの森の時計風オーバーレイ
+https://ririo.dev/Atsumori-clock-Overlay/</code></pre>
+          <p>
+            さらにもしよろしければTwitterやYouTubeのコメント欄等にて使用報告いただけると<span
+              class="font-bold"
+              >泣いて喜びます。
+            </span>
+          </p>
+        </div>
         <div class="mt-3">
-          <p>制作者等リンクは下から（シェアもよろしくね！）</p>
+          <p class="font-bold">
+            制作者等リンクは下から（シェアもよろしくね！）
+          </p>
           <ShareButtons />
         </div>
       </div>

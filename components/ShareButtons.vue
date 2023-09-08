@@ -3,7 +3,7 @@
   <div class="shareBox">
     <a
       href="https://twitter.com/intent/tweet?text=%E3%81%82%E3%81%A4%E3%81%BE%E3%82%8C%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E3%81%AE%E6%A3%AE%E3%81%AE%E6%99%82%E8%A8%88%E9%A2%A8%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%A4%20https%3A%2F%2Fririo.dev%2FAtsumori-clock-Overlay%2F%20"
-      class="font-bold text-blue-600"
+      class="font-bold text-blue-600 self-center mr-2"
       target="_blank"
     >
       Tweet
