@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: latest
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.3.0
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Setup Bun ☁️
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2.1.6
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: bun install
+
+      - name: Generate 💚
+        run: yarn generate
+
+      - name: Github Pages Deploy 🏳️
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          FOLDER: dist
