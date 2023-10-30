@@ -11,7 +11,10 @@ OBS / Xsplit 等配信ソフト向け時計オーバーレイ
 </p>
 
 <p align="center">
-   <img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/ririo08/Atsumori-clock-Overlay">
+  <img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/ririo08/Atsumori-clock-Overlay">
+  <a href="https://github.com/ririo08/Atsumori-clock-Overlay/actions/workflows/ci_main.yml">
+    <img src="https://github.com/ririo08/Atsumori-clock-Overlay/actions/workflows/ci_main.yml/badge.svg" alt="deploy">
+  </a>
 </p>
 
 <br />
