@@ -1,4 +1,4 @@
-name: ci
+name: deploy
 
 on:
   push:
@@ -8,28 +8,14 @@ jobs:
   ci:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: latest
-
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@v2.3.0
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.6
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: 'latest'
 
       - name: Setup Bun ☁️
         uses: oven-sh/setup-bun@v1
