@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Clock } from 'types/Clock'
+import type { Clock } from '~/types/Clock'
 
 useHead({
   link: [
