@@ -6,21 +6,20 @@
   "author": "ririo08",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "date-fns": "^2.30.0",
-    "nuxt": "^3.8.0",
-    "sass": "^1.65.1"
-  },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "@types/node": "^20",
+    "date-fns": "^2.30.0",
+    "nuxt": "^3.8.1",
     "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.5.1"
+    "prettier-plugin-tailwindcss": "^0.5.1",
+    "sass": "^1.69.5"
   }
 }
