@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@nuxtjs/tailwindcss':
-    specifier: ^6.9.4
-    version: 6.9.4(webpack@5.89.0)
+    specifier: ^6.9.5
+    version: 6.9.5(webpack@5.89.0)
   '@types/node':
     specifier: ^20
     version: 20.9.0
@@ -1292,8 +1292,8 @@ packages:
       - vue-tsc
     dev: true
 
-  /@nuxtjs/tailwindcss@6.9.4(webpack@5.89.0):
-    resolution: {integrity: sha512-T3B3P7RgJ/WTW3plHziLWqWbMzCWctUHpjqhW1WCXB/U3FOQxGH5dG4uEOmQkA6Gj4cbTNStIU/cRxpZhbBMhg==}
+  /@nuxtjs/tailwindcss@6.9.5(webpack@5.89.0):
+    resolution: {integrity: sha512-Q1jMY06KdK7f6IAL25HFWK0ZhTNaxyl/J0fhX3k0kjKojeflU6AbJTTKeVn9Dhqqt71y1thZqemuZNeJha+RBA==}
     dependencies:
       '@nuxt/kit': 3.8.1
       '@nuxt/postcss8': 1.1.3(webpack@5.89.0)
