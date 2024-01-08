@@ -17,7 +17,7 @@
     "@nuxtjs/tailwindcss": "^6.10.3",
     "@types/node": "^20",
     "date-fns": "^3.1.0",
-    "nuxt": "^3.8.2",
+    "nuxt": "^3.9.1",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.69.7"
