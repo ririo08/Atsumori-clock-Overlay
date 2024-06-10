@@ -1,0 +1,28 @@
+name: Automerge Dependabot PRs
+
+on:
+  workflow_run:
+    workflows: ["pr_check_generate"]
+    types:
+      - completed
+
+jobs:
+  automerge:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Merge PRs
+        run: |
+          gh pr list --label automerge --author dependabot[bot] --json number,mergeable,state --jq '.[] | select(.mergeable == "MERGEABLE" and .state == "OPEN") | .number' | while read pr; do
+            gh pr merge $pr --merge --admin
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
