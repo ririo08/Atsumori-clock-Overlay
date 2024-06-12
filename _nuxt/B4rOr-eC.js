@@ -1,0 +1,1 @@
+import{_ as s,t,W as r,s as a}from"./MvfnIumW.js";const n={},c={class:"wrapper min-h-screen"};function o(e,_){return a(),t("div",c,[r(e.$slots,"default",{},void 0,!0)])}const f=s(n,[["render",o],["__scopeId","data-v-a336831f"]]);export{f as default};
