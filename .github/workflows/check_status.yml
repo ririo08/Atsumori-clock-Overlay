@@ -1,0 +1,24 @@
+name: Check Page Status
+
+on:
+  schedule:
+    # 定期的な実行スケジュールを設定（例えば毎日午前0時に実行）
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # 手動実行を可能にする
+
+jobs:
+  check-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if the page returns 200
+        run: |
+          URL="https://ririo.dev/Atsumori-clock-Overlay"
+          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Page returned status code $STATUS_CODE"
+            exit 1
+          else
+            echo "Page is up and running. Status code $STATUS_CODE"
+          fi
