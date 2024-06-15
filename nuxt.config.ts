@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: false,
   spaLoadingTemplate: false,
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
 
   css: ['assets/style.scss'],
 
@@ -29,6 +29,12 @@ export default defineNuxtConfig({
             'https://ririo08.github.io/Atsumori-clock-Overlay/img/summary.jpg',
         },
       ],
+    },
+  },
+
+  eslint: {
+    config: {
+      stylistic: true,
     },
   },
 })
