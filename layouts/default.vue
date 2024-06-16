@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
   <div class="wrapper min-h-screen">
     <slot />

@@ -52,6 +52,7 @@ const createdLink = computed<string>(() => {
   return link + '?' + queryParams.join('&')
 })
 </script>
+
 <template>
   <div class="font-mono">
     <h1 class="text-4xl py-5 text-center font-extrabold">
@@ -67,10 +68,14 @@ const createdLink = computed<string>(() => {
       </div>
       <div class="mx-3">
         <div>
-          <p class="max-w-[500px] m-auto text-right">↑実際に動いてます</p>
+          <p class="max-w-[500px] m-auto text-right">
+            ↑実際に動いてます
+          </p>
         </div>
         <div class="mt-3">
-          <h3 class="text-2xl font-bold">これは何？</h3>
+          <h3 class="text-2xl font-bold">
+            これは何？
+          </h3>
           <p>これはOBS等の配信ソフト向けのオーバーレイです。</p>
           <p>
             あつまれ
@@ -80,17 +85,25 @@ const createdLink = computed<string>(() => {
             実際の日時に合わせて変動するので、「配信がいつ行われているか」などの利用を想定して作っています。
           </p>
         </div>
-        <h2 class="mt-4 text-2xl font-bold">使い方</h2>
+        <h2 class="mt-4 text-2xl font-bold">
+          使い方
+        </h2>
         <div class="mt-6">
-          <h3 class="text-xl">1.色を選ぶ</h3>
+          <h3 class="text-xl">
+            1.色を選ぶ
+          </h3>
           <div>
-            <input class="color-picker" v-model="selectedColor" type="color" />
+            <input
+              v-model="selectedColor"
+              class="color-picker"
+              type="color"
+            >
             <label class="items-center ml-1">カラーコードで指定: </label>
             <input
-              type="text"
               v-model="selectedColor"
+              type="text"
               class="border-2 rounded border-slate-600 pl-1"
-            />
+            >
           </div>
           <span
             class="cursor-pointer text-orange-700 font-bold hover:text-orange-500"
@@ -100,18 +113,26 @@ const createdLink = computed<string>(() => {
           </span>
         </div>
         <div class="mt-6">
-          <h3 class="text-xl">2.配置を選ぶ</h3>
+          <h3 class="text-xl">
+            2.配置を選ぶ
+          </h3>
           <select
             v-model="selectedPosition"
             class="border-2 rounded border-slate-600 pl-1"
           >
-            <option v-for="position of positions" :value="position.value">
+            <option
+              v-for="position of positions"
+              :key="position.value"
+              :value="position.value"
+            >
               {{ position.name }}
             </option>
           </select>
         </div>
         <div class="mt-6">
-          <h3 class="text-xl">3.下記リンクをコピーする</h3>
+          <h3 class="text-xl">
+            3.下記リンクをコピーする
+          </h3>
           <a
             class="text-orange-700 font-bold hover:text-orange-500"
             :href="createdLink"
@@ -122,10 +143,14 @@ const createdLink = computed<string>(() => {
           </a>
         </div>
         <div class="mt-6">
-          <h3 class="text-xl">4.OBSに貼り付ける</h3>
+          <h3 class="text-xl">
+            4.OBSに貼り付ける
+          </h3>
         </div>
         <div class="mt-6">
-          <h3 class="text-xl">5.読んでくれたら嬉しい利用規約</h3>
+          <h3 class="text-xl">
+            5.読んでくれたら嬉しい利用規約
+          </h3>
           <p class="mt-2">
             このオーバーレイは非商用・商用問わず自由に使っていただいて構いません。
           </p>
@@ -140,7 +165,7 @@ https://ririo.dev/Atsumori-clock-Overlay/</code></pre>
           <p>
             さらにもしよろしければTwitterやYouTubeのコメント欄等にて使用報告いただけると<span
               class="font-bold"
-              >泣いて喜びます。
+            >泣いて喜びます。
             </span>
           </p>
         </div>
@@ -154,6 +179,7 @@ https://ririo.dev/Atsumori-clock-Overlay/</code></pre>
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .color-picker {
   width: 3rem;

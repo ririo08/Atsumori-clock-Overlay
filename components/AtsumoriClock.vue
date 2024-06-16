@@ -16,7 +16,7 @@ useHead({
   ],
 })
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     color: string
   }>(),
@@ -45,27 +45,51 @@ onMounted(() => {
   setInterval(clock, 200)
 })
 </script>
+
 <template>
-  <div class="clock-container" :style="{ color: color }">
-    <div id="upper" :style="{ borderBottom: `${color} 6px solid` }">
-      <div id="ampm">{{ now.ampm }}</div>
+  <div
+    class="clock-container"
+    :style="{ color: color }"
+  >
+    <div
+      id="upper"
+      :style="{ borderBottom: `${color} 6px solid` }"
+    >
+      <div id="ampm">
+        {{ now.ampm }}
+      </div>
       <div class="time">
-        <div id="hour">{{ now.hour }}</div>
-        <div class="coron">&#058;</div>
-        <div id="min">{{ now.minute }}</div>
+        <div id="hour">
+          {{ now.hour }}
+        </div>
+        <div class="coron">
+          &#058;
+        </div>
+        <div id="min">
+          {{ now.minute }}
+        </div>
       </div>
     </div>
     <div class="lower">
       <div class="date">
-        <div id="month">{{ now.month }}</div>
-        <div class="gatu">月</div>
-        <div id="date">{{ now.day }}</div>
-        <div class="niti">日</div>
+        <div id="month">
+          {{ now.month }}
+        </div>
+        <div class="gatu">
+          月
+        </div>
+        <div id="date">
+          {{ now.day }}
+        </div>
+        <div class="niti">
+          日
+        </div>
       </div>
       <Week :week="now.week" />
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .clock-container {
   padding-top: 5px;

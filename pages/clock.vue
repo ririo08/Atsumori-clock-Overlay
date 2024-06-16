@@ -15,7 +15,8 @@ const positionName = useRoute().query?.position as PositionTypes | undefined
 if (colorParams) {
   if (colorParams === 'white' || colorParams === 'black') {
     color.value = colorParams
-  } else {
+  }
+  else {
     color.value = '#' + colorParams
   }
 }
@@ -73,11 +74,17 @@ const position = computed(() => {
   }
 })
 </script>
+
 <template>
   <div class="container">
-    <AtsumoriClock class="clocktarget" :style="position" :color="color" />
+    <AtsumoriClock
+      class="clocktarget"
+      :style="position"
+      :color="color"
+    />
   </div>
 </template>
+
 <style lang="scss" scoped>
 .clocktarget {
   margin: 0;
