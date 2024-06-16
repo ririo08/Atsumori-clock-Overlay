@@ -13,17 +13,17 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "bun eslint . --cache",
-    "lint:fix":"bun lint --fix"
+    "lint:fix": "bun lint --fix"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "@types/node": "^20",
-    "date-fns": "^3.6.0",
-    "nuxt": "^3.12.1",
-    "sass": "^1.77.5"
+    "@types/node": "^20.14.2"
   },
   "dependencies": {
     "@nuxt/eslint": "^0.3.13",
-    "eslint": "^9.5.0"
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "date-fns": "^3.6.0",
+    "eslint": "^9.5.0",
+    "nuxt": "^3.12.1",
+    "sass": "^1.77.5"
   }
 }
