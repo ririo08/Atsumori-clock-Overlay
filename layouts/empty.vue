@@ -1,5 +1,9 @@
 <script setup lang="ts"></script>
+
 <template>
-  <slot />
+  <section>
+    <slot />
+  </section>
 </template>
+
 <style lang="scss" scoped></style>

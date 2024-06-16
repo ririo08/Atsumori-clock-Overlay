@@ -6,20 +6,24 @@
   "author": "ririo08",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow bun",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "bun eslint . --cache",
+    "lint:fix":"bun lint --fix"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@types/node": "^20",
     "date-fns": "^3.6.0",
     "nuxt": "^3.12.1",
-    "prettier": "^3.3.2",
-    "prettier-plugin-tailwindcss": "^0.6.4",
     "sass": "^1.77.5"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "eslint": "^9.5.0"
   }
 }

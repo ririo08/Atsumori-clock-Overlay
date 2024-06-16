@@ -1,5 +1,5 @@
-import format from 'date-fns/format'
-import { Clock } from 'types/Clock'
+import { format } from 'date-fns/format'
+import type { Clock } from '~/types/Clock'
 
 export const useClock = () => {
   return {

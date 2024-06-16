@@ -1,5 +1,6 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script lang="ts" setup>
-const props = withDefaults(
+withDefaults(
   defineProps<{
     week?: number
   }>(),
@@ -11,6 +12,7 @@ const props = withDefaults(
 const imageWidth = '77'
 const weeks = ref(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
 </script>
+
 <template>
   <div class="week">
     <svg
@@ -135,6 +137,7 @@ const weeks = ref(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
     </svg>
   </div>
 </template>
+
 <style lang="scss">
 .cls-1 {
   fill: currentColor;
