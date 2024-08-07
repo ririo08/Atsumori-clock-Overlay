@@ -51,17 +51,17 @@ issue, PR等大歓迎です！
 
 ## Setup
 
-Deveropment:
+Development:
 
 ```cmd
-yarn
-yarn dev
+bun i
+bun dev
 ```
 
 Build:
 
 ```
-yarn generate
+bun generate
 ```
 
 ## Testing
