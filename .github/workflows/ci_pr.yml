@@ -67,7 +67,7 @@ jobs:
 
       # Gyazoでアップロードされた画像のURLを使ってPRコメントを投稿
       - name: Post screenshot to PR comment via Gyazo URL
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const imageUrl = "${{ steps.gyazo.outputs.image_url }}";
