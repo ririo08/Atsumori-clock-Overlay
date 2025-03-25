@@ -23,11 +23,11 @@ jobs:
       - name: Generate development environment 💚
         run: bun generate
 
-      # 生成物を静的サーバーで公開
+      # 生成物を静的サーバーで公開（出力ディレクトリはプロジェクトに合わせて調整）
       - name: Start static server
         run: |
           npx serve -s ./.output/public -l 3000 &
-      
+
       - name: Wait for server to be ready
         run: sleep 10
 
@@ -54,22 +54,19 @@ jobs:
           name: screenshot
           path: screenshot.png
 
-      # Gyazo API を利用して画像アップロードし、画像URLとimage_idを取得
+      # Gyazo API を利用して画像アップロードし、画像URLを取得
       - name: Upload screenshot to Gyazo
         id: gyazo
         run: |
           response=$(curl -s -F "access_token=${{ secrets.GYAZO_ACCESS_TOKEN }}" -F "imagedata=@screenshot.png" https://upload.gyazo.com/api/upload)
           echo "Gyazo API response: $response"
           image_url=$(echo "$response" | jq -r '.url')
-          image_id=$(echo "$response" | jq -r '.image_id')
           echo "Uploaded image URL: $image_url"
-          echo "Uploaded image ID: $image_id"
           echo "image_url=$image_url" >> $GITHUB_OUTPUT
-          echo "image_id=$image_id" >> $GITHUB_OUTPUT
         env:
           GYAZO_ACCESS_TOKEN: ${{ secrets.GYAZO_ACCESS_TOKEN }}
 
-      # PRコメントにGyazoでアップロードされた画像のURLを利用してコメントを投稿
+      # Gyazoでアップロードされた画像のURLを使ってPRコメントを投稿
       - name: Post screenshot to PR comment via Gyazo URL
         uses: actions/github-script@v6
         with:
@@ -81,11 +78,3 @@ jobs:
               repo: context.repo.repo,
               body: `### 生成物のスクリーンショット\n![screenshot](${imageUrl})`
             });
-      
-      # PRコメント投稿後、Gyazo側の画像を削除
-      - name: Delete image from Gyazo
-        run: |
-          curl -s -X DELETE "https://api.gyazo.com/api/images/${{ steps.gyazo.outputs.image_id }}?access_token=${{ secrets.GYAZO_ACCESS_TOKEN }}"
-          echo "Deleted Gyazo image with ID: ${{ steps.gyazo.outputs.image_id }}"
-        env:
-          GYAZO_ACCESS_TOKEN: ${{ secrets.GYAZO_ACCESS_TOKEN }}
