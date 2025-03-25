@@ -35,7 +35,7 @@ jobs:
       - name: Capture screenshot with Playwright
         run: |
           npx playwright install
-          npx playwright screenshot http://localhost:3000/clock --output=screenshot.png
+          npx playwright screenshot --full-page http://localhost:3000/clock screenshot.png
 
       # 取得したスクリーンショットをアーティファクトとしてアップロード
       - name: Upload screenshot artifact
