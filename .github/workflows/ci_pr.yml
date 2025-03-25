@@ -40,7 +40,7 @@ jobs:
           (async () => {
             const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
             const page = await browser.newPage();
-            await page.goto('http://localhost:3000/clock', { waitUntil: 'networkidle0' });
+            await page.goto('http://localhost:3000/Atsumori-clock-Overlay/clock?color=000000&position=bottomLeft', { waitUntil: 'networkidle0' });
             await page.screenshot({ path: 'screenshot.png', fullPage: true });
             await browser.close();
           })();
