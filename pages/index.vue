@@ -158,22 +158,41 @@ const createdLink = computed<string>(() => {
           <p>
             もし可能でしたら、以下の文章を配信の説明欄等に貼っていただけるととても喜びます。
           </p>
-          <pre
-            class="bg-gray-200 p-2 rounded-md border-gray-400 border-solid border-2"
-          ><code>あつまれどうぶつの森の時計風オーバーレイ
+          <pre class="bg-gray-200 p-2 rounded-md border-gray-400 border-solid border-2"><code>あつまれどうぶつの森の時計風オーバーレイ
 https://ririo.dev/Atsumori-clock-Overlay/</code></pre>
           <p>
-            さらにもしよろしければTwitterやYouTubeのコメント欄等にて使用報告いただけると<span
-              class="font-bold"
-            >泣いて喜びます。
-            </span>
+            さらにもしよろしければTwitterやYouTubeのコメント欄等にて使用報告いただけると<span class="font-bold">泣いて喜びます。</span>
           </p>
         </div>
-        <div class="mt-3">
+        <div class="mt-6">
+          <h3 class="text-xl">
+            6.注意事項
+          </h3>
+          <p class="mt-2">
+            このサービスはGithub上に公開されており、サーバーダウン時やそのほかの問題により表示が崩れる・表示されない場合があります。
+          </p>
+          <p class="mt-2">
+            その場合はこのトップページをブラウザから確認していただき、再度リンクの生成をお願いいたします。
+          </p>
+          <p>
+            また、このサービスは非公式であり、任天堂とは一切関係ございません。任天堂に問い合わせを行うのはご遠慮ください。
+          </p>
+          <p>
+            破壊的な変更点等がある場合はこのページにも記載いたしますが、リリース情報をご確認して頂ければと思います。
+          </p>
+          <p>
+            <a
+              class="text-orange-700 font-bold hover:text-orange-500"
+              href="https://github.com/ririo08/Atsumori-clock-Overlay/releases"
+              target="_blank"
+            >リリース情報</a>
+          </p>
+        </div>
+        <div class="mt-6">
           <p class="font-bold">
             制作者等リンクは下から（シェアもよろしくね！）
           </p>
-          <ShareButtons />
+          <ShareButtons class="mt-2 pb-5" />
         </div>
       </div>
     </div>
