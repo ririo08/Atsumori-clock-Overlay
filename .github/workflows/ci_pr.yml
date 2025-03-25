@@ -26,7 +26,7 @@ jobs:
       # 生成物を静的サーバーで公開（出力ディレクトリはプロジェクトに合わせて調整）
       - name: Start static server
         run: |
-          npx serve -s ./.output/public -l 3000
+          npx serve -s ./.output/public -l 3000 &
 
       - name: Wait for server to be ready
         run: sleep 10
