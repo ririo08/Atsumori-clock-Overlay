@@ -3,7 +3,11 @@ export default defineNuxtConfig({
   ssr: false,
   spaLoadingTemplate: false,
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+  ],
 
   css: ['assets/style.scss'],
 
@@ -42,6 +46,12 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       stylistic: true,
+    },
+  },
+
+  icon: {
+    clientBundle: {
+      scan: true,
     },
   },
 })
