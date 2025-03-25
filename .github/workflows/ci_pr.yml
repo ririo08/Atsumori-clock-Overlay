@@ -20,5 +20,60 @@ jobs:
       - name: Install dependencies 📦
         run: bun install
 
-      - name: Generate 💚
+      - name: Generate development environment 💚
         run: bun generate
+
+      - name: Start static server
+        run: |
+          npx serve -s ./.output/public -l 3000 &
+
+      - name: Wait for server to be ready
+        run: sleep 10
+
+      # Puppeteer を用いてスクリーンショットを取得
+      - name: Capture screenshot with Puppeteer
+        run: |
+          npm install puppeteer
+          cat << 'EOF' > screenshot.js
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+            const page = await browser.newPage();
+            await page.goto('http://localhost:3000/clock?color=000000&position=bottomLeft', { waitUntil: 'networkidle0' });
+            await page.screenshot({ path: 'screenshot.png', fullPage: true });
+            await browser.close();
+          })();
+          EOF
+          node screenshot.js
+
+      # 取得したスクリーンショットをアーティファクトとしてアップロード
+      - name: Upload screenshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot
+          path: screenshot.png
+
+      # Gyazo API を利用して画像アップロードし、画像URLを取得
+      - name: Upload screenshot to Gyazo
+        id: gyazo
+        run: |
+          response=$(curl -s -F "access_token=${{ secrets.GYAZO_ACCESS_TOKEN }}" -F "imagedata=@screenshot.png" https://upload.gyazo.com/api/upload)
+          echo "Gyazo API response: $response"
+          image_url=$(echo "$response" | jq -r '.url')
+          echo "Uploaded image URL: $image_url"
+          echo "image_url=$image_url" >> $GITHUB_OUTPUT
+        env:
+          GYAZO_ACCESS_TOKEN: ${{ secrets.GYAZO_ACCESS_TOKEN }}
+
+      # Gyazoでアップロードされた画像のURLを使ってPRコメントを投稿
+      - name: Post screenshot to PR comment via Gyazo URL
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const imageUrl = "${{ steps.gyazo.outputs.image_url }}";
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### 生成物のスクリーンショット\n![screenshot](${imageUrl})`
+            });

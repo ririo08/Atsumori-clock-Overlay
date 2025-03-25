@@ -8,8 +8,9 @@
   "scripts": {
     "preinstall": "npx only-allow bun",
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "dev": "nuxt dev --dotenv env/.env.development",
+    "generate": "nuxt generate --dotenv env/.env.development",
+    "release": "nuxt generate --dotenv env/.env.production",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "bun eslint . --cache",
