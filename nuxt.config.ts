@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     baseURL: process.env.BASE_URL,
     head: {
       charset: 'utf-8',
+      title: 'あつまれどうぶつの森の時計風オーバーレイ',
       meta: [
         { name: 'twitter:card', content: 'summary' },
         { name: 'twitter:site', content: '@ririo08' },
