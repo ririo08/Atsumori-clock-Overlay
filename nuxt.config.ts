@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   css: ['assets/style.scss'],
 
   app: {
-    baseURL: '/Atsumori-clock-Overlay/',
+    baseURL: process.env.BASE_URL,
     head: {
       charset: 'utf-8',
       meta: [
@@ -29,6 +29,12 @@ export default defineNuxtConfig({
             'https://ririo08.github.io/Atsumori-clock-Overlay/img/summary.jpg',
         },
       ],
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      isDev: '',
     },
   },
 

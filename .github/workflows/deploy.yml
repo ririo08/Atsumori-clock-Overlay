@@ -26,7 +26,7 @@ jobs:
         run: bun install
 
       - name: Generate 💚
-        run: bun generate
+        run: bun release
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

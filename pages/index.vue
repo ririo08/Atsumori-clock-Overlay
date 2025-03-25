@@ -35,8 +35,8 @@ const enabledPosition = computed(() => {
 
 // リンク
 const createdLink = computed<string>(() => {
-  // const link = 'http://localhost:3000/clock' // 開発用
-  const link = 'https://ririo.dev/Atsumori-clock-Overlay/clock'
+  const isDev = ['true', true].includes(useRuntimeConfig().public.isDev) // 文字列かbooleanか分からんので
+  const link = isDev ? 'http://localhost:3000/clock' : 'https://ririo.dev/Atsumori-clock-Overlay/clock'
 
   const queryParams: string[] = []
 
