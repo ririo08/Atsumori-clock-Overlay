@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@nuxt/eslint": "^1.4.1",
-    "@nuxt/icon": "^1.13.0",
+    "@nuxt/icon": "^2.0.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "date-fns": "^4.1.0",
     "eslint": "^9.28.0",
