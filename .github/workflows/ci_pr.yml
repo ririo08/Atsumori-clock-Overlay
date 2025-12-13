@@ -48,7 +48,7 @@ jobs:
 
       # 取得したスクリーンショットをアーティファクトとしてアップロード
       - name: Upload screenshot artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: screenshot
           path: screenshot.png
