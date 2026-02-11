@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@vueuse/nuxt',
+    '@nuxt/test-utils/module',
   ],
 
   css: ['assets/style.scss'],
