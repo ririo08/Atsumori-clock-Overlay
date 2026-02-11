@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   ssr: false,
   spaLoadingTemplate: false,
 
+  compatibilityDate: '2026-02-11',
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',

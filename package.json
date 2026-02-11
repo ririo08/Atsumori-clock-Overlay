@@ -18,15 +18,15 @@
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
-    "@types/node": "^25.0.0"
+    "@types/node": "^25.2.3"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.4.1",
-    "@nuxt/icon": "^2.0.0",
+    "@nuxt/eslint": "^1.15.1",
+    "@nuxt/icon": "^2.2.1",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "date-fns": "^4.1.0",
-    "eslint": "^9.28.0",
-    "nuxt": "^4.0.1",
-    "sass": "^1.89.1"
+    "eslint": "^10.0.0",
+    "nuxt": "^4.3.1",
+    "sass": "^1.97.3"
   }
 }
