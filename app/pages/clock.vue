@@ -10,6 +10,7 @@ const color = ref<string>('#fafee8')
 // パラメータ取得
 const colorParams = useRoute().query?.color as string | undefined
 const positionName = useRoute().query?.position as PositionTypes | undefined
+const { createPositionStyle } = usePosition()
 
 // 後方互換性
 if (colorParams) {
@@ -22,56 +23,7 @@ if (colorParams) {
 }
 
 const position = computed(() => {
-  switch (positionName) {
-    case PositionTypes.TopLeft:
-      return {
-        top: '55px',
-        bottom: 'default',
-        left: '66px',
-        right: 'default',
-      }
-      break
-    case PositionTypes.TopRight:
-      return {
-        top: '55px',
-        bottom: 'default',
-        left: 'default',
-        right: '66px',
-      }
-      break
-    case PositionTypes.BottomLeft:
-      return {
-        top: 'default',
-        bottom: '55px',
-        left: '66px',
-        right: 'default',
-      }
-      break
-    case PositionTypes.BottomRight:
-      return {
-        top: 'default',
-        bottom: '55px',
-        left: 'default',
-        right: '66px',
-      }
-      break
-    case PositionTypes.None:
-      return {
-        top: '6px',
-        bottom: 'default',
-        left: 'default',
-        right: 'default',
-      }
-      break
-    default:
-      return {
-        top: 'default',
-        bottom: '55px',
-        left: '66px',
-        right: 'default',
-      }
-      break
-  }
+  return createPositionStyle(positionName)
 })
 </script>
 

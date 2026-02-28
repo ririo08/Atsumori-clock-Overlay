@@ -3,10 +3,14 @@ export default defineNuxtConfig({
   ssr: false,
   spaLoadingTemplate: false,
 
+  compatibilityDate: '2026-02-11',
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@vueuse/nuxt',
+    '@nuxt/test-utils/module',
   ],
 
   css: ['assets/style.scss'],
@@ -52,6 +56,12 @@ export default defineNuxtConfig({
   icon: {
     clientBundle: {
       scan: true,
+    },
+  },
+
+  nitro: {
+    prerender: {
+      ignore: ['/compare', '/compare/**'],
     },
   },
 })

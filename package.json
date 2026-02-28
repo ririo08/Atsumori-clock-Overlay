@@ -14,19 +14,26 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "bun eslint . --cache",
-    "lint:fix": "bun lint --fix"
+    "lint:fix": "bun lint --fix",
+    "test": "vitest"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
-    "@types/node": "^25.0.0"
+    "@nuxt/test-utils": "^4.0.0",
+    "@types/node": "^25.3.2",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.7.0",
+    "playwright-core": "^1.58.2",
+    "vitest": "^4.0.18"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.4.1",
-    "@nuxt/icon": "^2.0.0",
+    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/icon": "^2.2.1",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@vueuse/nuxt": "^14.2.1",
     "date-fns": "^4.1.0",
-    "eslint": "^9.28.0",
-    "nuxt": "^4.0.1",
-    "sass": "^1.89.1"
+    "eslint": "^10.0.2",
+    "nuxt": "^4.3.1",
+    "sass": "^1.97.3"
   }
 }
