@@ -16,76 +16,81 @@ useHead({
   ],
 })
 
-withDefaults(
-  defineProps<{
-    color: string
-  }>(),
-  {
-    color: '#fafee8',
-  },
-)
+const props = withDefaults(defineProps<{
+  color: string
+  fixedDate?: Date | string | number
+}>(), {
+  color: '#fafee8',
+  fixedDate: undefined,
+})
 
 const { createClockString } = useClock()
+const now = useNow({ interval: 100 })
 
-// 時計ロジック
-const now = ref<Clock>(createClockString(new Date()))
-const minMemory = ref<number | null>(null)
+const parseFixedDate = (): Date | null => {
+  if (
+    props.fixedDate === undefined
+    || props.fixedDate === null
+    || props.fixedDate === ''
+  ) {
+    return null
+  }
 
-const clock = () => {
-  const nowForComparison = new Date()
+  const parsedDate = props.fixedDate instanceof Date
+    ? props.fixedDate
+    : new Date(props.fixedDate)
 
-  if (minMemory.value === nowForComparison.getMinutes()) return
-  minMemory.value = nowForComparison.getMinutes()
+  if (Number.isNaN(parsedDate.getTime())) return null
 
-  now.value = createClockString(nowForComparison)
+  return parsedDate
 }
 
-onMounted(() => {
-  clock()
-  setInterval(clock, 200)
+const currentDateTime = computed<Clock>(() => {
+  const date = parseFixedDate() ?? now.value
+  return createClockString(date)
 })
 </script>
 
 <template>
   <div
     class="clock-container"
-    :style="{ color: color }"
+    :style="{ color: props.color }"
   >
     <div
       id="upper"
-      :style="{ borderBottom: `${color} 6px solid` }"
+      :style="{ borderBottom: `${props.color} 6px solid` }"
     >
       <div id="ampm">
-        {{ now.ampm }}
+        {{ currentDateTime.ampm }}
       </div>
       <div class="time">
         <div id="hour">
-          {{ now.hour }}
+          {{ currentDateTime.hour }}
         </div>
         <div class="coron">
           &#058;
         </div>
         <div id="min">
-          {{ now.minute }}
+          {{ currentDateTime.minute }}
         </div>
       </div>
     </div>
     <div class="lower">
       <div class="date">
         <div id="month">
-          {{ now.month }}
+          {{ currentDateTime.month }}
         </div>
         <div class="gatu">
           月
         </div>
         <div id="date">
-          {{ now.day }}
+          {{ currentDateTime.day }}
         </div>
         <div class="niti">
           日
         </div>
       </div>
-      <Week :week="now.week" />
+      <Week :week="currentDateTime.week" />
     </div>
   </div>
 </template>
@@ -99,9 +104,7 @@ onMounted(() => {
 }
 
 #upper {
-  height: 77px;
   display: flex;
-  padding: 5px;
   border-bottom: #fafee8 6px solid;
   vertical-align: top;
   justify-content: center;
@@ -111,7 +114,6 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   padding-top: 12px;
-  height: 60px;
 }
 
 #ampm {
@@ -128,12 +130,18 @@ onMounted(() => {
   line-height: 60px;
   letter-spacing: 2px;
   font-family: 'Dongle', sans-serif;
+  transform: translateY(4px);
+}
+
+.coron {
+  font-size: 100px;
+  font-weight: bold;
 }
 
 .date {
   display: flex;
   vertical-align: top;
-  padding-right: 20px;
+  padding-right: 14px;
   letter-spacing: 3px;
 }
 
@@ -142,6 +150,7 @@ onMounted(() => {
   font-family: 'Dongle', sans-serif;
   font-size: 74px;
   line-height: 60px;
+  letter-spacing: 0px;
 }
 
 .gatu,
@@ -150,5 +159,21 @@ onMounted(() => {
   font-weight: bolder;
   font-size: 38px;
   line-height: 50px;
+}
+
+#month {
+  padding-left: 4px;
+}
+
+.gatu {
+  padding-left: 8px;
+}
+
+#date {
+  padding-left: 10px;
+}
+
+.niti {
+  padding-left: 6px;
 }
 </style>

@@ -58,4 +58,10 @@ export default defineNuxtConfig({
       scan: true,
     },
   },
+
+  nitro: {
+    prerender: {
+      ignore: ['/compare', '/compare/**'],
+    },
+  },
 })
