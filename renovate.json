@@ -9,6 +9,10 @@
   },
   "packageRules": [
     {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
