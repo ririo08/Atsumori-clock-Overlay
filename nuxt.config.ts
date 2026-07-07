@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         {
           name: 'twitter:image',
           content:
-            'https://ririo08.github.io/Atsumori-clock-Overlay/img/summary.jpg',
+            'https://ririo.dev/Atsumori-clock-Overlay/img/summary.jpg',
         },
       ],
     },
